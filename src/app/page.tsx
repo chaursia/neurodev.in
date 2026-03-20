@@ -53,39 +53,6 @@ export default function Home() {
     console.log("submitted");
   };
 
-  const bentoItems = [
-    {
-      title: "AI-First Mentorship",
-      description: "Learn how to master LLMs and specialized AI tools to build 10x faster.",
-      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10" />,
-      icon: <Bot className="h-4 w-4 text-indigo-400" />,
-    },
-    {
-      title: "Global Collaboration",
-      description: "Connect with developers from across the globe on open-source AI projects.",
-      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-blue-500/20 to-emerald-500/20 border border-white/10" />,
-      icon: <Globe className="h-4 w-4 text-emerald-400" />,
-    },
-    {
-      title: "Real-world Projects",
-      description: "Ship production-grade software using the latest tech stack.",
-      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 border border-white/10" />,
-      icon: <Terminal className="h-4 w-4 text-orange-400" />,
-    },
-    {
-      title: "Accelerated Learning",
-      description: "A curriculum designed for the AI era, focusing on core fundamentals and AI leverage.",
-      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-pink-500/20 to-rose-500/20 border border-white/10" />,
-      icon: <Zap className="h-4 w-4 text-pink-400" />,
-    },
-    {
-      title: "Open Source Heart",
-      description: "Everything we build is driven by community and transparency.",
-      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10" />,
-      icon: <Code className="h-4 w-4 text-cyan-400" />,
-    },
-  ];
-
   return (
     <main className="relative min-h-screen w-full bg-slate-50 dark:bg-slate-950 overflow-x-hidden">
       <FloatingNav navItems={navItems} />
