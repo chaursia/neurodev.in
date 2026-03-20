@@ -55,36 +55,82 @@ export default function Register() {
     portfolio: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
+  const validateStep1 = () => {
+    const { fullName, email, whatsapp, country, address } = formData;
+    if (!fullName || !email || !whatsapp || !country || !address) {
+      alert("Please fill in all basic information fields.");
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+    return true;
+  };
+
+  const validateStep2 = () => {
+    const { projects, github, experience, linkedin, portfolio } = formData;
+    if (!projects || !github || !experience || !linkedin || !portfolio) {
+      alert("Please fill in all professional information fields.");
+      return false;
+    }
+    // Simple link validation (must start with http)
+    const links = [github, linkedin, portfolio];
+    for (const link of links) {
+      if (link && !link.startsWith("http")) {
+        alert("Please enter valid profile URLs (starting with http:// or https://)");
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const nextStep = () => {
+    if (validateStep1()) {
+      setStep(2);
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const prevStep = () => {
+    setStep(1);
+    window.scrollTo(0, 0);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateStep2()) return;
+
     setIsSubmitting(true);
-    
     try {
       const response = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
+        setIsSuccess(true);
         confetti({
           particleCount: 150,
-          spread: 80,
+          spread: 70,
           origin: { y: 0.6 },
-          colors: ["#4f46e5", "#06b6d4", "#818cf8"]
+          colors: ["#4f46e5", "#3b82f6", "#ffffff"]
         });
-        setStep(3);
+        setStep(3); // Keep this to transition to the success screen
+      } else {
+        alert("Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error("Submission failed", error);
+      console.error(error);
+      alert("Failed to submit registration.");
     } finally {
       setIsSubmitting(false);
     }

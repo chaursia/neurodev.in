@@ -5,6 +5,19 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
 
+    // Server-side validation
+    const requiredFields = ["fullName", "email", "whatsapp", "country", "address", "projects", "github", "experience", "linkedin", "portfolio"];
+    for (const field of requiredFields) {
+      if (!data[field]) {
+        return NextResponse.json({ success: false, message: `Field ${field} is required` }, { status: 400 });
+      }
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      return NextResponse.json({ success: false, message: "Invalid email format" }, { status: 400 });
+    }
+
     // Configure the SMTP Transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
