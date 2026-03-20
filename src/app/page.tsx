@@ -23,7 +23,7 @@ export default function Home() {
     { name: "Home", link: "#home", icon: <HomeIcon className="h-4 w-4" /> },
     { name: "Features", link: "#features", icon: <Cpu className="h-4 w-4" /> },
     { name: "Community", link: "#community", icon: <Globe className="h-4 w-4" /> },
-    { name: "Waitlist", link: "#waitlist", icon: <User className="h-4 w-4" /> },
+    { name: "Register", link: "/register", icon: <User className="h-4 w-4" /> },
   ];
 
   const placeholders = [

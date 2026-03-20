@@ -65,7 +65,7 @@ export const CTASection = () => {
             </p>
             
             <button 
-              onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.location.href = "/register"}
               className="mt-4 px-8 py-4 bg-white text-indigo-950 rounded-full font-black text-lg flex items-center gap-3 hover:bg-indigo-50 transition-colors shadow-lg"
             >
               Register Now
