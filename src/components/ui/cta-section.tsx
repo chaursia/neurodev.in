@@ -6,7 +6,7 @@ import { Mail, Linkedin, ArrowRight } from "lucide-react";
 
 export const CTASection = () => {
   return (
-    <section id="community" className="py-24 px-4 bg-slate-50 dark:bg-slate-950/50">
+    <section id="community" className="py-24 px-4 bg-white dark:bg-black border-b border-black/5 dark:border-white/5">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <motion.div
