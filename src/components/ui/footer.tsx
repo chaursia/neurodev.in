@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -18,15 +19,9 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-8">
-            {["HOME", "FEATURES", "COMMUNITY", "WAITLIST"].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="text-xs font-black text-slate-500 hover:text-indigo-600 dark:text-slate-500 dark:hover:text-indigo-400 transition-colors tracking-[0.2em]"
-              >
-                {link}
-              </a>
-            ))}
+            <Link href="/" className="text-xs font-black text-slate-500 hover:text-indigo-600 dark:text-slate-500 dark:hover:text-indigo-400 transition-colors tracking-[0.2em]">HOME</Link>
+            <Link href="/about" className="text-xs font-black text-slate-500 hover:text-indigo-600 dark:text-slate-500 dark:hover:text-indigo-400 transition-colors tracking-[0.2em]">ABOUT US</Link>
+            <a href="https://chaursia.in" target="_blank" rel="noopener noreferrer" className="text-xs font-black text-slate-500 hover:text-indigo-600 dark:text-slate-500 dark:hover:text-indigo-400 transition-colors tracking-[0.2em]">PORTFOLIO</a>
           </div>
         </div>
 

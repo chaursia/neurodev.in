@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Mail, Linkedin, ArrowRight } from "lucide-react";
@@ -64,13 +65,13 @@ export const CTASection = () => {
               Ready to push the boundaries? Join a community that prioritizes innovation, performance, and impact.
             </p>
             
-            <button 
-              onClick={() => window.location.href = "/register"}
+            <Link 
+              href="/register"
               className="mt-4 px-8 py-4 bg-white text-indigo-950 rounded-full font-black text-lg flex items-center gap-3 hover:bg-indigo-50 transition-colors shadow-lg"
             >
               Register Now
               <ArrowRight className="h-5 w-5" />
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>

@@ -20,9 +20,9 @@ import confetti from "canvas-confetti";
 
 export default function Home() {
   const navItems = [
-    { name: "Home", link: "#home", icon: <HomeIcon className="h-4 w-4" /> },
-    { name: "Features", link: "#features", icon: <Cpu className="h-4 w-4" /> },
-    { name: "Community", link: "#community", icon: <Globe className="h-4 w-4" /> },
+    { name: "Home", link: "/#home", icon: <HomeIcon className="h-4 w-4" /> },
+    { name: "Features", link: "/#features", icon: <Cpu className="h-4 w-4" /> },
+    { name: "Community", link: "/#community", icon: <Globe className="h-4 w-4" /> },
   ];
 
   const placeholders = [
